@@ -1,0 +1,114 @@
+/**
+ * Badge — styles reference semantic tokens only (var(--color-*), etc.).
+ * Variant keys are mapped to these classes from badge.tsx via CVA.
+ * Hover states on default/secondary/destructive/outline only apply when the
+ * badge is rendered as a link (asChild → <a>); ghost/link always react.
+ */
+
+.base {
+  display: inline-flex;
+  width: fit-content;
+  height: var(--spacing-5);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+  overflow: hidden;
+  border: var(--border-width-1) solid transparent;
+  border-radius: var(--radius-full);
+  padding-inline: var(--spacing-2);
+  padding-block: var(--spacing-0-5);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  outline: none;
+  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    color var(--motion-duration-fast) var(--motion-easing-standard),
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+.base svg {
+  pointer-events: none;
+  width: var(--icon-size-2xs);
+  height: var(--icon-size-2xs);
+  flex-shrink: 0;
+}
+
+.base:has([data-icon="inline-start"]) {
+  padding-inline-start: var(--spacing-1-5);
+}
+.base:has([data-icon="inline-end"]) {
+  padding-inline-end: var(--spacing-1-5);
+}
+
+.base:focus-visible {
+  border-color: var(--color-ring);
+  box-shadow: 0 0 0 var(--border-width-2)
+    color-mix(in oklch, var(--color-ring), transparent 50%);
+}
+
+.base[aria-invalid="true"] {
+  border-color: var(--color-destructive);
+  box-shadow: 0 0 0 var(--border-width-2)
+    color-mix(in oklch, var(--color-destructive), transparent 80%);
+}
+
+/* ---- Variants ---- */
+
+.variantDefault {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+a.variantDefault:hover {
+  background-color: color-mix(in oklch, var(--color-primary), transparent 20%);
+}
+
+.variantSecondary {
+  background-color: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+}
+a.variantSecondary:hover {
+  background-color: color-mix(in oklch, var(--color-secondary), transparent 20%);
+}
+
+.variantDestructive {
+  background-color: color-mix(in oklch, var(--color-destructive), transparent 90%);
+  color: var(--color-destructive);
+}
+.variantDestructive:focus-visible {
+  box-shadow: 0 0 0 var(--border-width-2)
+    color-mix(in oklch, var(--color-destructive), transparent 80%);
+}
+a.variantDestructive:hover {
+  background-color: color-mix(in oklch, var(--color-destructive), transparent 80%);
+}
+
+.variantOutline {
+  border-color: var(--color-border);
+  background-color: color-mix(in oklch, var(--color-input), transparent 80%);
+  color: var(--color-foreground);
+}
+a.variantOutline:hover {
+  background-color: var(--color-muted);
+  color: var(--color-muted-foreground);
+}
+
+.variantGhost {
+  background-color: transparent;
+  color: var(--color-foreground);
+}
+.variantGhost:hover {
+  background-color: var(--color-muted);
+  color: var(--color-muted-foreground);
+}
+
+.variantLink {
+  background-color: transparent;
+  color: var(--color-primary);
+  text-underline-offset: 4px;
+}
+.variantLink:hover {
+  text-decoration: underline;
+}

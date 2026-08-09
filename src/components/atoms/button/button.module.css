@@ -1,0 +1,231 @@
+/**
+ * Button — styles reference semantic tokens only (var(--color-*), etc.).
+ * Variant/size keys are mapped to these classes from button.tsx via CVA.
+ */
+
+.base {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width-1) solid transparent;
+  background-clip: padding-box;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    color var(--motion-duration-fast) var(--motion-easing-standard),
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-fast) var(--motion-easing-standard),
+    transform var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+.base svg {
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.base:focus-visible {
+  border-color: var(--color-ring);
+  box-shadow: 0 0 0 var(--border-width-2)
+    color-mix(in oklch, var(--color-ring), transparent 70%);
+}
+
+.base[aria-invalid="true"] {
+  border-color: var(--color-destructive);
+  box-shadow: 0 0 0 var(--border-width-2)
+    color-mix(in oklch, var(--color-destructive), transparent 80%);
+}
+
+.base:active:not([aria-haspopup="true"]) {
+  transform: translateY(1px);
+}
+
+.base:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ---- Variants ---- */
+
+.variantDefault {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+.variantDefault:hover {
+  background-color: color-mix(in oklch, var(--color-primary), transparent 15%);
+}
+
+.variantOutline {
+  border-color: var(--color-border);
+  color: var(--color-foreground);
+  background-color: transparent;
+}
+.variantOutline:hover {
+  background-color: color-mix(in oklch, var(--color-input), transparent 50%);
+  color: var(--color-foreground);
+}
+.variantOutline[aria-expanded="true"] {
+  background-color: var(--color-muted);
+  color: var(--color-foreground);
+}
+
+.variantSecondary {
+  background-color: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+}
+.variantSecondary:hover {
+  background-color: color-mix(
+    in oklch,
+    var(--color-secondary),
+    var(--color-foreground) 5%
+  );
+}
+
+.variantGhost {
+  background-color: transparent;
+  color: var(--color-foreground);
+}
+.variantGhost:hover,
+.variantGhost[aria-expanded="true"] {
+  background-color: var(--color-muted);
+  color: var(--color-foreground);
+}
+
+.variantDestructive {
+  background-color: color-mix(in oklch, var(--color-destructive), transparent 90%);
+  color: var(--color-destructive);
+}
+.variantDestructive:hover {
+  background-color: color-mix(in oklch, var(--color-destructive), transparent 80%);
+}
+.variantDestructive:focus-visible {
+  border-color: color-mix(in oklch, var(--color-destructive), transparent 60%);
+  box-shadow: 0 0 0 var(--border-width-2)
+    color-mix(in oklch, var(--color-destructive), transparent 80%);
+}
+
+.variantLink {
+  background-color: transparent;
+  color: var(--color-primary);
+  text-underline-offset: 4px;
+}
+.variantLink:hover {
+  text-decoration: underline;
+}
+
+/* ---- Sizes ---- */
+
+.sizeDefault {
+  height: var(--spacing-7);
+  gap: var(--spacing-1);
+  padding-inline: var(--spacing-2);
+  font-size: var(--font-size-xs);
+  line-height: var(--font-line-height-relaxed);
+}
+.sizeDefault svg {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+}
+.sizeDefault:has([data-icon="inline-start"]) {
+  padding-inline-start: var(--spacing-1-5);
+}
+.sizeDefault:has([data-icon="inline-end"]) {
+  padding-inline-end: var(--spacing-1-5);
+}
+
+.sizeXs {
+  height: var(--spacing-5);
+  gap: var(--spacing-1);
+  padding-inline: var(--spacing-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-2xs);
+  line-height: var(--font-line-height-relaxed);
+}
+.sizeXs svg {
+  width: var(--icon-size-2xs);
+  height: var(--icon-size-2xs);
+}
+.sizeXs:has([data-icon="inline-start"]) {
+  padding-inline-start: var(--spacing-1-5);
+}
+.sizeXs:has([data-icon="inline-end"]) {
+  padding-inline-end: var(--spacing-1-5);
+}
+
+.sizeSm {
+  height: var(--spacing-6);
+  gap: var(--spacing-1);
+  padding-inline: var(--spacing-2);
+  font-size: var(--font-size-xs);
+  line-height: var(--font-line-height-relaxed);
+}
+.sizeSm svg {
+  width: var(--icon-size-xs);
+  height: var(--icon-size-xs);
+}
+.sizeSm:has([data-icon="inline-start"]) {
+  padding-inline-start: var(--spacing-1-5);
+}
+.sizeSm:has([data-icon="inline-end"]) {
+  padding-inline-end: var(--spacing-1-5);
+}
+
+.sizeLg {
+  height: var(--spacing-8);
+  gap: var(--spacing-1);
+  padding-inline: var(--spacing-2-5);
+  font-size: var(--font-size-xs);
+  line-height: var(--font-line-height-relaxed);
+}
+.sizeLg svg {
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+}
+.sizeLg:has([data-icon="inline-start"]) {
+  padding-inline-start: var(--spacing-2);
+}
+.sizeLg:has([data-icon="inline-end"]) {
+  padding-inline-end: var(--spacing-2);
+}
+
+.sizeIcon {
+  width: var(--spacing-7);
+  height: var(--spacing-7);
+}
+.sizeIcon svg {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+}
+
+.sizeIconXs {
+  width: var(--spacing-5);
+  height: var(--spacing-5);
+  border-radius: var(--radius-sm);
+}
+.sizeIconXs svg {
+  width: var(--icon-size-2xs);
+  height: var(--icon-size-2xs);
+}
+
+.sizeIconSm {
+  width: var(--spacing-6);
+  height: var(--spacing-6);
+}
+.sizeIconSm svg {
+  width: var(--icon-size-xs);
+  height: var(--icon-size-xs);
+}
+
+.sizeIconLg {
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+}
+.sizeIconLg svg {
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+}

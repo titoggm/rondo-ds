@@ -1,0 +1,39 @@
+{
+  "text": {
+    "heading": {
+      "family": { "$type": "fontFamily", "$value": "{font.family.sans}" },
+      "size": { "$type": "dimension", "$value": "{font.size.2xl}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}" },
+      "leading": { "$type": "number", "$value": "{font.line-height.tight}" },
+      "tracking": { "$type": "dimension", "$value": "{font.letter-spacing.tight}" }
+    },
+    "body": {
+      "family": { "$type": "fontFamily", "$value": "{font.family.sans}" },
+      "size": { "$type": "dimension", "$value": "{font.size.sm}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.normal}" },
+      "leading": { "$type": "number", "$value": "{font.line-height.normal}" },
+      "tracking": { "$type": "dimension", "$value": "{font.letter-spacing.normal}" }
+    },
+    "label": {
+      "family": { "$type": "fontFamily", "$value": "{font.family.sans}" },
+      "size": { "$type": "dimension", "$value": "{font.size.xs}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.medium}" },
+      "leading": { "$type": "number", "$value": "{font.line-height.snug}" },
+      "tracking": { "$type": "dimension", "$value": "{font.letter-spacing.normal}" }
+    },
+    "caption": {
+      "family": { "$type": "fontFamily", "$value": "{font.family.sans}" },
+      "size": { "$type": "dimension", "$value": "{font.size.2xs}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.normal}" },
+      "leading": { "$type": "number", "$value": "{font.line-height.snug}" },
+      "tracking": { "$type": "dimension", "$value": "{font.letter-spacing.wide}" }
+    },
+    "code": {
+      "family": { "$type": "fontFamily", "$value": "{font.family.mono}" },
+      "size": { "$type": "dimension", "$value": "{font.size.sm}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.normal}" },
+      "leading": { "$type": "number", "$value": "{font.line-height.normal}" },
+      "tracking": { "$type": "dimension", "$value": "{font.letter-spacing.normal}" }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+/**
+ * Skeleton — styles reference semantic tokens only (var(--color-*), etc.).
+ * The pulse animation mirrors the original utility behavior; its timing is a
+ * structural detail with no matching motion token, so it is kept literal.
+ */
+
+.skeleton {
+  border-radius: var(--radius-md);
+  background-color: var(--color-muted);
+  animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

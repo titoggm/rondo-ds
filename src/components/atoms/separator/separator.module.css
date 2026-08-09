@@ -1,0 +1,19 @@
+/**
+ * Separator — styles reference semantic tokens only (var(--color-*), etc.).
+ * Orientation is driven by Radix's data-orientation attribute on the root.
+ */
+
+.separator {
+  flex-shrink: 0;
+  background-color: var(--color-border);
+}
+
+.separator[data-orientation="horizontal"] {
+  height: var(--border-width-1);
+  width: 100%;
+}
+
+.separator[data-orientation="vertical"] {
+  width: var(--border-width-1);
+  align-self: stretch;
+}

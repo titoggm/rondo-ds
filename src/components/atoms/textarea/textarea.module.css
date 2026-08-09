@@ -1,0 +1,57 @@
+/**
+ * Textarea — styles reference semantic tokens only (var(--color-*), etc.).
+ * Dark mode is driven entirely by the token layer (the .dark block in
+ * tokens.css), so no component-level dark overrides are needed.
+ */
+
+.textarea {
+  display: flex;
+  field-sizing: content;
+  width: 100%;
+  min-height: var(--spacing-16);
+  resize: none;
+  border: var(--border-width-1) solid var(--color-input);
+  border-radius: var(--radius-md);
+  background-color: color-mix(in oklch, var(--color-input), transparent 80%);
+  padding-inline: var(--spacing-2);
+  padding-block: var(--spacing-2);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  line-height: var(--font-line-height-relaxed);
+  color: var(--color-foreground);
+  outline: none;
+  transition: color var(--motion-duration-fast) var(--motion-easing-standard),
+    background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+/* Smaller text from the md breakpoint up (avoids iOS zoom on focus at small
+   sizes). Media queries can't read custom properties, so 768px mirrors
+   --breakpoint-md. */
+@media (min-width: 768px) {
+  .textarea {
+    font-size: var(--font-size-xs);
+  }
+}
+
+.textarea::placeholder {
+  color: var(--color-muted-foreground);
+}
+
+.textarea:focus-visible {
+  border-color: var(--color-ring);
+  box-shadow: 0 0 0 var(--border-width-2)
+    color-mix(in oklch, var(--color-ring), transparent 70%);
+}
+
+.textarea[aria-invalid="true"] {
+  border-color: var(--color-destructive);
+  box-shadow: 0 0 0 var(--border-width-2)
+    color-mix(in oklch, var(--color-destructive), transparent 80%);
+}
+
+.textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

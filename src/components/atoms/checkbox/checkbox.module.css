@@ -1,0 +1,82 @@
+/**
+ * Checkbox — styles reference semantic tokens only (var(--color-*), etc.).
+ *
+ * Notes on the Tailwind → CSS Modules translation:
+ *   - The original used `data-checked:` selectors, but Radix emits
+ *     `data-state="checked"`, so those were a no-op. Corrected here.
+ *   - `.root` carries a `data-peer` marker attribute (set in checkbox.tsx)
+ *     so a sibling Label's disabled-peer rule still fires.
+ *   - Field-level disabled propagation is data driven: an ancestor marked
+ *     [data-disabled="true"] dims the control.
+ *   - Dark mode is driven by the token layer; no component dark overrides.
+ */
+
+.root {
+  position: relative;
+  display: flex;
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width-1) solid var(--color-input);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    color var(--motion-duration-fast) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+/* Enlarged hit area beyond the 16px box. */
+.root::after {
+  content: "";
+  position: absolute;
+  inset-inline: calc(var(--spacing-3) * -1);
+  inset-block: calc(var(--spacing-2) * -1);
+}
+
+.root:focus-visible {
+  border-color: var(--color-ring);
+  box-shadow: 0 0 0 var(--border-width-2)
+    color-mix(in oklch, var(--color-ring), transparent 70%);
+}
+
+.root:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+:global([data-disabled="true"]) .root {
+  opacity: 0.5;
+}
+
+.root[data-state="checked"],
+.root[data-state="indeterminate"] {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.root[aria-invalid="true"] {
+  border-color: var(--color-destructive);
+  box-shadow: 0 0 0 var(--border-width-2)
+    color-mix(in oklch, var(--color-destructive), transparent 80%);
+}
+
+/* A checked-but-invalid box still reads as the affirmative (primary) state. */
+.root[aria-invalid="true"][data-state="checked"] {
+  border-color: var(--color-primary);
+}
+
+.indicator {
+  display: grid;
+  place-content: center;
+  color: currentColor;
+  transition: none;
+}
+
+.indicator svg {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+}

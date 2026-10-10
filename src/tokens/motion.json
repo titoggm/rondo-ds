@@ -1,15 +1,22 @@
 {
   "motion": {
     "duration": {
-      "instant": { "$type": "duration", "$value": "0ms" },
-      "fast": { "$type": "duration", "$value": "120ms" },
-      "normal": { "$type": "duration", "$value": "200ms" },
-      "slow": { "$type": "duration", "$value": "320ms" }
+      "0": { "$type": "duration", "$value": "0ms" },
+      "10": { "$type": "duration", "$value": "50ms" },
+      "20": { "$type": "duration", "$value": "100ms" },
+      "30": { "$type": "duration", "$value": "150ms" },
+      "40": { "$type": "duration", "$value": "200ms" },
+      "50": { "$type": "duration", "$value": "250ms" },
+      "60": { "$type": "duration", "$value": "300ms" },
+      "70": { "$type": "duration", "$value": "400ms" },
+      "80": { "$type": "duration", "$value": "500ms" },
+      "90": { "$type": "duration", "$value": "700ms" }
     },
     "easing": {
-      "standard": { "$type": "cubicBezier", "$value": "cubic-bezier(0.2, 0, 0, 1)" },
+      "linear": { "$type": "cubicBezier", "$value": "cubic-bezier(0, 0, 1, 1)" },
       "in": { "$type": "cubicBezier", "$value": "cubic-bezier(0.4, 0, 1, 1)" },
-      "out": { "$type": "cubicBezier", "$value": "cubic-bezier(0, 0, 0.2, 1)" }
+      "out": { "$type": "cubicBezier", "$value": "cubic-bezier(0, 0, 0.2, 1)" },
+      "in-out": { "$type": "cubicBezier", "$value": "cubic-bezier(0.4, 0, 0.2, 1)" }
     }
   }
 }

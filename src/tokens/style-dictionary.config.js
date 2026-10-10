@@ -4,13 +4,18 @@
  * Compiles the W3C design token JSONs in this folder into CSS custom
  * properties at src/tokens/generated/tokens.css.
  *
- * Two-layer token system:
- *   - Primitives (colors, typography, spacing, ...) emit literal values.
- *   - Semantics reference primitives, so they are emitted as
- *     `var(--primitive)` (outputReferences) to keep the layering legible.
+ * Every generated custom property is namespaced `--rds-*` (see NAMESPACE).
  *
- * Colors carry an optional dark override under
- * `$extensions.rondo.dark`; those are emitted into a `.dark { ... }` block.
+ * Two-layer token system:
+ *   - Primitives (color, font, space, size, ...) emit literal values.
+ *   - Semantics (color-surface/action/status, radius, icon-size, font-label/
+ *     body/heading, opacity) reference primitives as `{a.b.c}`; the custom
+ *     format below rewrites those to `var(--rds-a-b-c)` through refToVar(),
+ *     not Style Dictionary's outputReferences, to keep the layering legible.
+ *
+ * Light mode only. Dark-mode support was removed deliberately; the previous
+ * per-token overrides (`$extensions.rondo.dark` -> a `.dark { ... }` block)
+ * are recoverable from git history if it is reinstated.
  *
  * Run with: `npm run tokens`
  *
@@ -21,11 +26,14 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports -- see note above: CJS config, ESM-only library.
 const path = require("node:path");
 
-/** Turn a W3C reference string `{a.b.c}` into `var(--a-b-c)`. */
+/** Namespace prefixed to every generated custom property. */
+const NAMESPACE = "rds";
+
+/** Turn a W3C reference string `{a.b.c}` into `var(--rds-a-b-c)`. */
 function refToVar(value) {
   return String(value).replace(
-    /\{([^}]+)\}/g,
-    (_, ref) => `var(--${ref.split(".").join("-")})`
+    /\{([^{}]+)\}/g,
+    (_, ref) => `var(--${NAMESPACE}-${ref.replaceAll(".", "-")})`
   );
 }
 
@@ -37,22 +45,13 @@ async function main() {
   const { default: StyleDictionary } = await import("style-dictionary");
 
   StyleDictionary.registerFormat({
-    name: "css/rondo-themed",
+    name: "css/rondo",
     format: ({ dictionary }) => {
-      const light = [];
-      const dark = [];
-
-      dictionary.allTokens.forEach((token) => {
-        const name = token.path.join("-");
+      const declarations = dictionary.allTokens.map((token) => {
+        const name = [NAMESPACE, ...token.path].join("-");
         const original = token.original.$value;
         const value = isReference(original) ? refToVar(original) : token.$value;
-        light.push(`  --${name}: ${value};`);
-
-        const darkRef = token.original.$extensions?.rondo?.dark;
-        if (darkRef != null) {
-          const darkValue = isReference(darkRef) ? refToVar(darkRef) : darkRef;
-          dark.push(`  --${name}: ${darkValue};`);
-        }
+        return `  --${name}: ${value};`;
       });
 
       return [
@@ -62,11 +61,7 @@ async function main() {
         " */",
         "",
         ":root {",
-        light.join("\n"),
-        "}",
-        "",
-        ".dark {",
-        dark.join("\n"),
+        declarations.join("\n"),
         "}",
         "",
       ].join("\n");
@@ -85,7 +80,7 @@ async function main() {
         files: [
           {
             destination: "tokens.css",
-            format: "css/rondo-themed",
+            format: "css/rondo",
           },
         ],
       },

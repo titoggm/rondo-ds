@@ -1,0 +1,41 @@
+{
+  "size": {
+    "0": { "$type": "dimension", "$value": "0" },
+    "10": { "$type": "dimension", "$value": "0.125rem", "$description": "2px — indicators, dots" },
+    "20": { "$type": "dimension", "$value": "0.25rem", "$description": "4px — carets, marks" },
+    "30": { "$type": "dimension", "$value": "0.375rem", "$description": "6px" },
+    "40": { "$type": "dimension", "$value": "0.5rem", "$description": "8px" },
+    "50": { "$type": "dimension", "$value": "0.625rem", "$description": "10px — icon, pairs with font.size.10" },
+    "60": { "$type": "dimension", "$value": "0.75rem", "$description": "12px — icon, pairs with font.size.20" },
+    "70": { "$type": "dimension", "$value": "0.875rem", "$description": "14px — icon, pairs with font.size.30" },
+    "80": { "$type": "dimension", "$value": "1rem", "$description": "16px — icon, pairs with font.size.40" },
+    "90": { "$type": "dimension", "$value": "1.25rem", "$description": "20px — icon (font.size.60), checkbox, radio" },
+    "100": { "$type": "dimension", "$value": "1.5rem", "$description": "24px — icon (font.size.70), avatar sm" },
+    "110": { "$type": "dimension", "$value": "1.75rem", "$description": "28px — control height sm" },
+    "120": { "$type": "dimension", "$value": "2rem", "$description": "32px — control height md, avatar md" },
+    "130": { "$type": "dimension", "$value": "2.25rem", "$description": "36px — form input height" },
+    "135": { "$type": "dimension", "$value": "2.375rem", "$description": "38px — button md (Paper)" },
+    "140": { "$type": "dimension", "$value": "2.5rem", "$description": "40px — control height lg, avatar lg" },
+    "150": { "$type": "dimension", "$value": "2.75rem", "$description": "44px — minimum touch target (WCAG 2.5.8)" },
+    "160": { "$type": "dimension", "$value": "3rem", "$description": "48px — control height xl, avatar xl" },
+    "170": { "$type": "dimension", "$value": "3.5rem", "$description": "56px" },
+    "180": { "$type": "dimension", "$value": "4rem", "$description": "64px — avatar 2xl" },
+    "190": { "$type": "dimension", "$value": "4.5rem", "$description": "72px — empty-state icon" },
+    "container": {
+      "0": { "$type": "dimension", "$value": "0" },
+      "10": { "$type": "dimension", "$value": "5.5rem", "$description": "88px" },
+      "20": { "$type": "dimension", "$value": "12rem", "$description": "192px" },
+      "25": { "$type": "dimension", "$value": "15rem", "$description": "240px — sidebar" },
+      "30": { "$type": "dimension", "$value": "18.5rem", "$description": "296px" },
+      "40": { "$type": "dimension", "$value": "25rem", "$description": "400px" },
+      "50": { "$type": "dimension", "$value": "31.5rem", "$description": "504px" },
+      "60": { "$type": "dimension", "$value": "38rem", "$description": "608px" },
+      "70": { "$type": "dimension", "$value": "44.5rem", "$description": "712px" },
+      "80": { "$type": "dimension", "$value": "51rem", "$description": "816px" },
+      "90": { "$type": "dimension", "$value": "57.5rem", "$description": "920px" },
+      "100": { "$type": "dimension", "$value": "64rem", "$description": "1024px — matches breakpoint.30" },
+      "110": { "$type": "dimension", "$value": "70.5rem", "$description": "1128px" },
+      "120": { "$type": "dimension", "$value": "77rem", "$description": "1232px" }
+    }
+  }
+}

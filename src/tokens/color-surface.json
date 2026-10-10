@@ -1,0 +1,12 @@
+{
+  "color": {
+    "surface": {
+      "background": { "$type": "color", "$value": "{color.white}" },
+      "background-raised": { "$type": "color", "$value": "{color.white}" },
+      "background-inverse": { "$type": "color", "$value": "{color.neutral.950}" },
+      "border": { "$type": "color", "$value": "{color.neutral.200}" },
+      "text": { "$type": "color", "$value": "{color.neutral.950}" },
+      "text-subtle": { "$type": "color", "$value": "{color.neutral.500}" }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "gradient": {
+    "action": {
+      "sheen": {
+        "$type": "gradient",
+        "$value": "linear-gradient(in oklab 180deg, oklab(100% 0 0 / 1.6%) 0%, oklab(0% 0 0 / 1%) 100%)",
+        "$description": "Paper button surface. CSS string ($type is decorative)."
+      }
+    }
+  }
+}

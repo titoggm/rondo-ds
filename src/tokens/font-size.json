@@ -1,0 +1,16 @@
+{
+  "font": {
+    "size": {
+      "10": { "$type": "dimension", "$value": "0.625rem", "$description": "10px" },
+      "20": { "$type": "dimension", "$value": "0.75rem", "$description": "12px" },
+      "30": { "$type": "dimension", "$value": "0.875rem", "$description": "14px" },
+      "40": { "$type": "dimension", "$value": "1rem", "$description": "16px" },
+      "60": { "$type": "dimension", "$value": "1.25rem", "$description": "20px" },
+      "70": { "$type": "dimension", "$value": "1.5rem", "$description": "24px" },
+      "80": { "$type": "dimension", "$value": "1.75rem", "$description": "28px" },
+      "90": { "$type": "dimension", "$value": "2rem", "$description": "32px" },
+      "100": { "$type": "dimension", "$value": "2.5rem", "$description": "40px" },
+      "110": { "$type": "dimension", "$value": "3rem", "$description": "48px" }
+    }
+  }
+}

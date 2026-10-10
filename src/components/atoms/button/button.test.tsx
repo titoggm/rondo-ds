@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 
 import { Button } from "./button"
+import styles from "./button.module.css"
 
 describe("Button", () => {
   it("renders its children as a native button by default", () => {
@@ -15,26 +16,43 @@ describe("Button", () => {
     render(<Button>Save</Button>)
     const button = screen.getByRole("button", { name: "Save" })
     expect(button).toHaveAttribute("data-slot", "button")
-    expect(button).toHaveAttribute("data-variant", "default")
-    expect(button).toHaveAttribute("data-size", "default")
+    expect(button).toHaveAttribute("data-variant", "primary")
+    expect(button).toHaveAttribute("data-size", "md")
   })
 
   it("reflects the chosen variant and size", () => {
     render(
-      <Button variant="destructive" size="sm">
+      <Button variant="secondary" size="lg">
         Delete
       </Button>
     )
     const button = screen.getByRole("button", { name: "Delete" })
-    expect(button).toHaveAttribute("data-variant", "destructive")
-    expect(button).toHaveAttribute("data-size", "sm")
+    expect(button).toHaveAttribute("data-variant", "secondary")
+    expect(button).toHaveAttribute("data-size", "lg")
   })
 
-  it("applies a module class for its variant", () => {
-    render(<Button variant="outline">Cancel</Button>)
-    const button = screen.getByRole("button", { name: "Cancel" })
-    // CSS Modules hash class names, so just assert one was applied.
-    expect(button.className.length).toBeGreaterThan(0)
+  it("maps each variant to its module class", () => {
+    render(
+      <>
+        <Button>A</Button>
+        <Button variant="secondary">B</Button>
+      </>
+    )
+    expect(screen.getByRole("button", { name: "A" })).toHaveClass(styles.variantPrimary)
+    expect(screen.getByRole("button", { name: "B" })).toHaveClass(styles.variantSecondary)
+  })
+
+  it("maps each size to its module class", () => {
+    render(
+      <>
+        <Button size="sm">S</Button>
+        <Button>M</Button>
+        <Button size="lg">L</Button>
+      </>
+    )
+    expect(screen.getByRole("button", { name: "S" })).toHaveClass(styles.sizeSm)
+    expect(screen.getByRole("button", { name: "M" })).toHaveClass(styles.sizeMd)
+    expect(screen.getByRole("button", { name: "L" })).toHaveClass(styles.sizeLg)
   })
 
   it("forwards a custom className alongside the variant classes", () => {

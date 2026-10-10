@@ -1,0 +1,10 @@
+{
+  "font": {
+    "body": {
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.20}" },
+      "size": {
+        "xs": { "$type": "dimension", "$value": "{font.size.20}" }
+      }
+    }
+  }
+}

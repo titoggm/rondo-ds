@@ -1,0 +1,16 @@
+{
+  "font": {
+    "line-height": {
+      "10": { "$type": "dimension", "$value": "1rem", "$description": "10px * 1.4 = 14px -> 16px / 16 = 1" },
+      "20": { "$type": "dimension", "$value": "1.25rem", "$description": "12px * 1.4 = 16.8px -> 20px / 16 = 1.25" },
+      "30": { "$type": "dimension", "$value": "1.25rem", "$description": "14px * 1.4 = 19.6px -> 20px / 16 = 1.25" },
+      "40": { "$type": "dimension", "$value": "1.5rem", "$description": "16px * 1.4 = 22.4px -> 24px / 16 = 1.5" },
+      "60": { "$type": "dimension", "$value": "1.75rem", "$description": "20px * 1.4 = 28px / 16 = 1.75" },
+      "70": { "$type": "dimension", "$value": "2rem", "$description": "24px * 1.25 = 30px -> 32px / 16 = 2" },
+      "80": { "$type": "dimension", "$value": "2.25rem", "$description": "28px * 1.25 = 35px -> 36px / 16 = 2.25" },
+      "90": { "$type": "dimension", "$value": "2.5rem", "$description": "32px * 1.25 = 40px / 16 = 2.5" },
+      "100": { "$type": "dimension", "$value": "3rem", "$description": "40px * 1.15 = 46px -> 48px / 16 = 3" },
+      "110": { "$type": "dimension", "$value": "3.5rem", "$description": "48px * 1.15 = 55.2px -> 56px / 16 = 3.5" }
+    }
+  }
+}

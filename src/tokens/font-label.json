@@ -1,0 +1,16 @@
+{
+  "font": {
+    "label": {
+      "family": { "$type": "fontFamily", "$value": "{font.family.sans}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.medium}" },
+      "size": {
+        "sm": { "$type": "dimension", "$value": "{font.size.30}" },
+        "md": { "$type": "dimension", "$value": "{font.size.40}" }
+      },
+      "line-height": {
+        "sm": { "$type": "dimension", "$value": "{font.line-height.30}" },
+        "md": { "$type": "dimension", "$value": "{font.line-height.40}" }
+      }
+    }
+  }
+}

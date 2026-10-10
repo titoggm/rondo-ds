@@ -1,0 +1,10 @@
+{
+  "icon": {
+    "size": {
+      "10": { "$type": "dimension", "$value": "{size.60}", "$description": "12px" },
+      "20": { "$type": "dimension", "$value": "{size.70}", "$description": "14px" },
+      "30": { "$type": "dimension", "$value": "{size.80}", "$description": "16px" },
+      "40": { "$type": "dimension", "$value": "{size.90}", "$description": "20px" }
+    }
+  }
+}

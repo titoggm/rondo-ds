@@ -1,0 +1,5 @@
+{
+  "opacity": {
+    "disabled": { "$type": "number", "$value": 0.5 }
+  }
+}

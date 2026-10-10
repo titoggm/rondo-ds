@@ -1,0 +1,11 @@
+{
+  "color": {
+    "status": {
+      "background-error-subtle": { "$type": "color", "$value": "{color.red.100}" },
+      "background-error-subtle-hovered": { "$type": "color", "$value": "{color.red.200}" },
+      "border-error": { "$type": "color", "$value": "{color.red.600}" },
+      "border-error-subtle": { "$type": "color", "$value": "{color.red.300}" },
+      "text-error-strong": { "$type": "color", "$value": "{color.red.700}" }
+    }
+  }
+}

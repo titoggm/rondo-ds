@@ -1,6 +1,12 @@
 /**
- * Button — styles reference semantic tokens only (var(--color-*), etc.).
+ * Button — styles reference semantic tokens only (var(--rds-color-*), etc.).
  * Variant/size keys are mapped to these classes from button.tsx via CVA.
+ *
+ * Source of truth: Paper "Rondo DS". Size md, radius, shadow and surface are
+ * exact. There is deliberately no border — the edge is drawn entirely by the
+ * inset shadows, so a border (or background-clip) would shift it inward.
+ *
+ * `secondary` assumes a dark surface (translucent light fill, light text).
  */
 
 .base {
@@ -8,20 +14,18 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border: var(--border-width-1) solid transparent;
-  background-clip: padding-box;
-  border-radius: var(--radius-md);
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-weight-medium);
+  border-radius: var(--rds-radius-control);
+  background-image: var(--rds-gradient-action-sheen);
+  font-family: var(--rds-font-label-family);
+  font-weight: var(--rds-font-label-weight);
+  text-align: center;
   white-space: nowrap;
   user-select: none;
   cursor: pointer;
   outline: none;
-  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
-    color var(--motion-duration-fast) var(--motion-easing-standard),
-    border-color var(--motion-duration-fast) var(--motion-easing-standard),
-    box-shadow var(--motion-duration-fast) var(--motion-easing-standard),
-    transform var(--motion-duration-fast) var(--motion-easing-standard);
+  transition: background-color var(--rds-motion-duration-20) var(--rds-motion-easing-out),
+    box-shadow var(--rds-motion-duration-20) var(--rds-motion-easing-out),
+    transform var(--rds-motion-duration-20) var(--rds-motion-easing-out);
 }
 
 .base svg {
@@ -30,15 +34,13 @@
 }
 
 .base:focus-visible {
-  border-color: var(--color-ring);
-  box-shadow: 0 0 0 var(--border-width-2)
-    color-mix(in oklch, var(--color-ring), transparent 70%);
+  outline: var(--rds-border-width-20) solid var(--rds-color-action-ring);
+  outline-offset: var(--rds-border-width-20);
 }
 
 .base[aria-invalid="true"] {
-  border-color: var(--color-destructive);
-  box-shadow: 0 0 0 var(--border-width-2)
-    color-mix(in oklch, var(--color-destructive), transparent 80%);
+  outline: var(--rds-border-width-20) solid var(--rds-color-status-border-error);
+  outline-offset: var(--rds-border-width-20);
 }
 
 .base:active:not([aria-haspopup="true"]) {
@@ -47,185 +49,81 @@
 
 .base:disabled {
   pointer-events: none;
-  opacity: 0.5;
+  opacity: var(--rds-opacity-disabled);
 }
 
 /* ---- Variants ---- */
 
-.variantDefault {
-  background-color: var(--color-primary);
-  color: var(--color-primary-foreground);
+.variantPrimary {
+  background-color: var(--rds-color-action-background-primary);
+  color: var(--rds-color-action-text-primary);
+  box-shadow: var(--rds-shadow-action-primary);
 }
-.variantDefault:hover {
-  background-color: color-mix(in oklch, var(--color-primary), transparent 15%);
-}
-
-.variantOutline {
-  border-color: var(--color-border);
-  color: var(--color-foreground);
-  background-color: transparent;
-}
-.variantOutline:hover {
-  background-color: color-mix(in oklch, var(--color-input), transparent 50%);
-  color: var(--color-foreground);
-}
-.variantOutline[aria-expanded="true"] {
-  background-color: var(--color-muted);
-  color: var(--color-foreground);
+.variantPrimary:hover {
+  background-color: var(--rds-color-action-background-primary-hovered);
 }
 
 .variantSecondary {
-  background-color: var(--color-secondary);
-  color: var(--color-secondary-foreground);
+  background-color: var(--rds-color-action-background-secondary);
+  color: var(--rds-color-action-text-secondary);
+  box-shadow: var(--rds-shadow-action-secondary);
 }
 .variantSecondary:hover {
-  background-color: color-mix(
-    in oklch,
-    var(--color-secondary),
-    var(--color-foreground) 5%
-  );
-}
-
-.variantGhost {
-  background-color: transparent;
-  color: var(--color-foreground);
-}
-.variantGhost:hover,
-.variantGhost[aria-expanded="true"] {
-  background-color: var(--color-muted);
-  color: var(--color-foreground);
-}
-
-.variantDestructive {
-  background-color: color-mix(in oklch, var(--color-destructive), transparent 90%);
-  color: var(--color-destructive);
-}
-.variantDestructive:hover {
-  background-color: color-mix(in oklch, var(--color-destructive), transparent 80%);
-}
-.variantDestructive:focus-visible {
-  border-color: color-mix(in oklch, var(--color-destructive), transparent 60%);
-  box-shadow: 0 0 0 var(--border-width-2)
-    color-mix(in oklch, var(--color-destructive), transparent 80%);
-}
-
-.variantLink {
-  background-color: transparent;
-  color: var(--color-primary);
-  text-underline-offset: 4px;
-}
-.variantLink:hover {
-  text-decoration: underline;
+  background-color: var(--rds-color-action-background-secondary-hovered);
 }
 
 /* ---- Sizes ---- */
 
-.sizeDefault {
-  height: var(--spacing-7);
-  gap: var(--spacing-1);
-  padding-inline: var(--spacing-2);
-  font-size: var(--font-size-xs);
-  line-height: var(--font-line-height-relaxed);
-}
-.sizeDefault svg {
-  width: var(--icon-size-sm);
-  height: var(--icon-size-sm);
-}
-.sizeDefault:has([data-icon="inline-start"]) {
-  padding-inline-start: var(--spacing-1-5);
-}
-.sizeDefault:has([data-icon="inline-end"]) {
-  padding-inline-end: var(--spacing-1-5);
-}
-
-.sizeXs {
-  height: var(--spacing-5);
-  gap: var(--spacing-1);
-  padding-inline: var(--spacing-2);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-2xs);
-  line-height: var(--font-line-height-relaxed);
-}
-.sizeXs svg {
-  width: var(--icon-size-2xs);
-  height: var(--icon-size-2xs);
-}
-.sizeXs:has([data-icon="inline-start"]) {
-  padding-inline-start: var(--spacing-1-5);
-}
-.sizeXs:has([data-icon="inline-end"]) {
-  padding-inline-end: var(--spacing-1-5);
-}
-
 .sizeSm {
-  height: var(--spacing-6);
-  gap: var(--spacing-1);
-  padding-inline: var(--spacing-2);
-  font-size: var(--font-size-xs);
-  line-height: var(--font-line-height-relaxed);
+  height: var(--rds-size-120);
+  gap: var(--rds-space-30);
+  padding: var(--rds-space-30) var(--rds-space-60);
+  font-size: var(--rds-font-label-size-sm);
+  line-height: var(--rds-font-label-line-height-sm);
 }
 .sizeSm svg {
-  width: var(--icon-size-xs);
-  height: var(--icon-size-xs);
+  width: var(--rds-icon-size-30);
+  height: var(--rds-icon-size-30);
 }
 .sizeSm:has([data-icon="inline-start"]) {
-  padding-inline-start: var(--spacing-1-5);
+  padding-inline-start: var(--rds-space-40);
 }
 .sizeSm:has([data-icon="inline-end"]) {
-  padding-inline-end: var(--spacing-1-5);
+  padding-inline-end: var(--rds-space-40);
+}
+
+.sizeMd {
+  height: var(--rds-size-135);
+  gap: var(--rds-space-30);
+  padding: var(--rds-space-40) var(--rds-space-80);
+  font-size: var(--rds-font-label-size-sm);
+  line-height: var(--rds-font-label-line-height-sm);
+}
+.sizeMd svg {
+  width: var(--rds-icon-size-30);
+  height: var(--rds-icon-size-30);
+}
+.sizeMd:has([data-icon="inline-start"]) {
+  padding-inline-start: var(--rds-space-60);
+}
+.sizeMd:has([data-icon="inline-end"]) {
+  padding-inline-end: var(--rds-space-60);
 }
 
 .sizeLg {
-  height: var(--spacing-8);
-  gap: var(--spacing-1);
-  padding-inline: var(--spacing-2-5);
-  font-size: var(--font-size-xs);
-  line-height: var(--font-line-height-relaxed);
+  height: var(--rds-size-150);
+  gap: var(--rds-space-40);
+  padding: var(--rds-space-50) var(--rds-space-90);
+  font-size: var(--rds-font-label-size-md);
+  line-height: var(--rds-font-label-line-height-md);
 }
 .sizeLg svg {
-  width: var(--icon-size-md);
-  height: var(--icon-size-md);
+  width: var(--rds-icon-size-40);
+  height: var(--rds-icon-size-40);
 }
 .sizeLg:has([data-icon="inline-start"]) {
-  padding-inline-start: var(--spacing-2);
+  padding-inline-start: var(--rds-space-80);
 }
 .sizeLg:has([data-icon="inline-end"]) {
-  padding-inline-end: var(--spacing-2);
-}
-
-.sizeIcon {
-  width: var(--spacing-7);
-  height: var(--spacing-7);
-}
-.sizeIcon svg {
-  width: var(--icon-size-sm);
-  height: var(--icon-size-sm);
-}
-
-.sizeIconXs {
-  width: var(--spacing-5);
-  height: var(--spacing-5);
-  border-radius: var(--radius-sm);
-}
-.sizeIconXs svg {
-  width: var(--icon-size-2xs);
-  height: var(--icon-size-2xs);
-}
-
-.sizeIconSm {
-  width: var(--spacing-6);
-  height: var(--spacing-6);
-}
-.sizeIconSm svg {
-  width: var(--icon-size-xs);
-  height: var(--icon-size-xs);
-}
-
-.sizeIconLg {
-  width: var(--spacing-8);
-  height: var(--spacing-8);
-}
-.sizeIconLg svg {
-  width: var(--icon-size-md);
-  height: var(--icon-size-md);
+  padding-inline-end: var(--rds-space-80);
 }

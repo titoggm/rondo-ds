@@ -1,0 +1,13 @@
+{
+  "color": {
+    "action": {
+      "background-primary": { "$type": "color", "$value": "{color.blue.800}" },
+      "background-primary-hovered": { "$type": "color", "$value": "color-mix(in oklch, {color.blue.800}, {color.white} 8%)" },
+      "background-secondary": { "$type": "color", "$value": "color-mix(in oklch, {color.neutral.50} 3.14%, transparent)" },
+      "background-secondary-hovered": { "$type": "color", "$value": "color-mix(in oklch, {color.neutral.50} 6%, transparent)" },
+      "text-primary": { "$type": "color", "$value": "{color.neutral.950}" },
+      "text-secondary": { "$type": "color", "$value": "{color.neutral.50}" },
+      "ring": { "$type": "color", "$value": "{color.neutral.400}" }
+    }
+  }
+}

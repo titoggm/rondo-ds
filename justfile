@@ -8,5 +8,3 @@ cdfc:
 # everyday claude instance
 cdtg:
     claude --model sonnet
-
-    

@@ -1,0 +1,12 @@
+{
+  "font": {
+    "heading": {
+      "family": { "$type": "fontFamily", "$value": "{font.family.sans}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}" },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.20}" },
+      "size": {
+        "sm": { "$type": "dimension", "$value": "{font.size.30}" }
+      }
+    }
+  }
+}

@@ -1,12 +1,14 @@
 {
   "z-index": {
-    "base": { "$type": "number", "$value": 0 },
-    "dropdown": { "$type": "number", "$value": 1000 },
-    "sticky": { "$type": "number", "$value": 1100 },
-    "overlay": { "$type": "number", "$value": 1200 },
-    "modal": { "$type": "number", "$value": 1300 },
-    "popover": { "$type": "number", "$value": 1400 },
-    "tooltip": { "$type": "number", "$value": 1500 },
-    "toast": { "$type": "number", "$value": 1600 }
+    "0": { "$type": "number", "$value": 0 },
+    "10": { "$type": "number", "$value": 10 },
+    "20": { "$type": "number", "$value": 20 },
+    "30": { "$type": "number", "$value": 30 },
+    "40": { "$type": "number", "$value": 40 },
+    "50": { "$type": "number", "$value": 50 },
+    "60": { "$type": "number", "$value": 60 },
+    "70": { "$type": "number", "$value": 70 },
+    "80": { "$type": "number", "$value": 80 },
+    "90": { "$type": "number", "$value": 90 }
   }
 }

@@ -1,0 +1,9 @@
+{
+  "breakpoint": {
+    "10": { "$type": "dimension", "$value": "640px" },
+    "20": { "$type": "dimension", "$value": "768px" },
+    "30": { "$type": "dimension", "$value": "1024px" },
+    "40": { "$type": "dimension", "$value": "1280px" },
+    "50": { "$type": "dimension", "$value": "1536px" }
+  }
+}

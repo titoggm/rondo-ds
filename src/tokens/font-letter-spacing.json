@@ -1,0 +1,16 @@
+{
+  "font": {
+    "letter-spacing": {
+      "10": { "$type": "dimension", "$value": "0.015em", "$description": "(40 - 10) / 10 * 0.005 = 0.015em — pairs with font.size.10" },
+      "20": { "$type": "dimension", "$value": "0.01em", "$description": "(40 - 20) / 10 * 0.005 = 0.01em — pairs with font.size.20" },
+      "30": { "$type": "dimension", "$value": "0.005em", "$description": "(40 - 30) / 10 * 0.005 = 0.005em — pairs with font.size.30" },
+      "40": { "$type": "dimension", "$value": "0em", "$description": "(40 - 40) / 10 * 0.005 = 0em — pairs with font.size.40" },
+      "60": { "$type": "dimension", "$value": "-0.01em", "$description": "(40 - 60) / 10 * 0.005 = -0.01em — pairs with font.size.60" },
+      "70": { "$type": "dimension", "$value": "-0.015em", "$description": "(40 - 70) / 10 * 0.005 = -0.015em — pairs with font.size.70" },
+      "80": { "$type": "dimension", "$value": "-0.02em", "$description": "(40 - 80) / 10 * 0.005 = -0.02em — pairs with font.size.80" },
+      "90": { "$type": "dimension", "$value": "-0.025em", "$description": "(40 - 90) / 10 * 0.005 = -0.025em — pairs with font.size.90" },
+      "100": { "$type": "dimension", "$value": "-0.03em", "$description": "(40 - 100) / 10 * 0.005 = -0.03em — pairs with font.size.100" },
+      "110": { "$type": "dimension", "$value": "-0.035em", "$description": "(40 - 110) / 10 * 0.005 = -0.035em — pairs with font.size.110" }
+    }
+  }
+}

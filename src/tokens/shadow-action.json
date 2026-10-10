@@ -1,0 +1,16 @@
+{
+  "shadow": {
+    "action": {
+      "primary": {
+        "$type": "shadow",
+        "$value": "inset 0 1px 0 color-mix(in oklch, {color.white} 3.92%, transparent), inset 0 0 0 1px color-mix(in oklch, {color.white} 5.88%, transparent), inset 0 0 0 1px color-mix(in oklch, {color.white} 10.2%, transparent), 0 1px 3px color-mix(in oklch, {color.black} 20%, transparent)",
+        "$description": "Paper primary button. CSS string, not W3C shadow object ($type is decorative)."
+      },
+      "secondary": {
+        "$type": "shadow",
+        "$value": "inset 0 1px 0 color-mix(in oklch, {color.white} 3.92%, transparent), inset 0 0 0 1px color-mix(in oklch, {color.black} 5.88%, transparent), inset 0 -1px 0 color-mix(in oklch, {color.black} 5.88%, transparent), inset 0 0 0 1px color-mix(in oklch, {color.white} 10.2%, transparent), 0 1px 3px color-mix(in oklch, {color.black} 20%, transparent)",
+        "$description": "Paper secondary button."
+      }
+    }
+  }
+}

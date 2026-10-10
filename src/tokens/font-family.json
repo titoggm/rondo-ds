@@ -1,0 +1,14 @@
+{
+  "font": {
+    "family": {
+      "sans": {
+        "$type": "fontFamily",
+        "$value": "var(--font-sans), ui-sans-serif, system-ui, sans-serif"
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": "var(--font-geist-mono), ui-monospace, monospace"
+      }
+    }
+  }
+}
